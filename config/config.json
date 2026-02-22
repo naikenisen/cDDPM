@@ -24,7 +24,7 @@
             },
             "dataloader":{
                 "args":{
-                    "batch_size": 4,
+                    "batch_size": 1,
                     "num_workers": 4,
                     "shuffle": true,
                     "pin_memory": true,
@@ -60,7 +60,7 @@
             },
             "dataloader":{
                 "args":{
-                    "batch_size": 8,
+                    "batch_size": 1,
                     "num_workers": 4,
                     "pin_memory": true
                 }
@@ -94,7 +94,7 @@
                         "in_channel": 6,
                         "out_channel": 3,
                         "inner_channel": 64,
-                        "channel_mults": [1, 2, 4, 8],
+                        "channel_mults": [1, 2, 4, 4],
                         "attn_res": [16],
                         "num_head_channels": 32,
                         "res_blocks": 2,
