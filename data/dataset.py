@@ -15,10 +15,10 @@ def pil_loader(path):
     return Image.open(path).convert('RGB')
 
 class VirtualStainingDataset(data.Dataset):
-    def __init__(self, data_root, data_len=-1, image_size=[224, 224], loader=pil_loader):
+    def __init__(self, data_root, data_len=-1, image_size=[512, 512], loader=pil_loader):
         self.data_root = data_root
         
-        # Définition des sous-dossiers en fonction du data_root (train, test ou valid)
+        # Définition des sous-dossiers HES et CD30
         self.hes_dir = os.path.join(data_root, 'HES')
         self.cd30_dir = os.path.join(data_root, 'CD30')
         
@@ -37,7 +37,6 @@ class VirtualStainingDataset(data.Dataset):
                 transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
         ])
         self.loader = loader
-        self.image_size = image_size
 
     def __getitem__(self, index):
         ret = {}
@@ -54,6 +53,7 @@ class VirtualStainingDataset(data.Dataset):
         ret['gt_image'] = gt_image
         ret['cond_image'] = cond_image
         ret['path'] = file_name
+        
         return ret
 
     def __len__(self):

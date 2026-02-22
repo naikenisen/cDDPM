@@ -19,19 +19,29 @@
                 "name": ["data.dataset", "VirtualStainingDataset"], 
                 "args":{
                     "data_root": "/work/imvia/in156281/ia2hl/dataset_tiled_512/train",
-                    "data_len": 18135
+                    "image_size": [512, 512]
                 } 
             },
             "dataloader":{
-                "validation_split": 2, 
                 "args":{
                     "batch_size": 4,
                     "num_workers": 4,
                     "shuffle": true,
                     "pin_memory": true,
                     "drop_last": true
-                },
-                "val_args":{
+                }
+            }
+        },
+        "val": { 
+            "which_dataset": {  
+                "name": ["data.dataset", "VirtualStainingDataset"], 
+                "args":{
+                    "data_root": "/work/imvia/in156281/ia2hl/dataset_tiled_512/valid",
+                    "image_size": [512, 512]
+                } 
+            },
+            "dataloader":{
+                "args":{
                     "batch_size": 1,
                     "num_workers": 4,
                     "shuffle": false,
@@ -44,7 +54,8 @@
             "which_dataset": {
                 "name": ["data.dataset", "VirtualStainingDataset"],
                 "args":{
-                    "data_root": "/work/imvia/in156281/ia2hl/dataset_tiled_512/test"
+                    "data_root": "/work/imvia/in156281/ia2hl/dataset_tiled_512/test",
+                    "image_size": [512, 512]
                 }
             },
             "dataloader":{
@@ -88,7 +99,7 @@
                         "num_head_channels": 32,
                         "res_blocks": 2,
                         "dropout": 0.2,
-                        "image_size": 224
+                        "image_size": 512
                     },
                     "beta_schedule": {
                         "train": {
