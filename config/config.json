@@ -19,7 +19,7 @@
                 "name": ["data.dataset", "VirtualStainingDataset"], 
                 "args":{
                     "data_root": "/work/imvia/in156281/ia2hl/dataset_tiled_512/train",
-                    "data_len": -1
+                    "data_len": 18135
                 } 
             },
             "dataloader":{
